@@ -62,7 +62,8 @@ export default {
     this.$store.commit("initializeStore")
   },
   mounted() {
-    this.cart = this.$store.state.cart
+    this.cart = this.$store.state.cart,
+    this.API_URL
   },
   computed: {
     cartTotalLength: function() {

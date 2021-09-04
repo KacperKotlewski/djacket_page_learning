@@ -4,6 +4,11 @@ import router from './router'
 import store from './store'
 import axios from "axios";
 
-axios.defaults.baseURL = "http://127.0.0.1:8000"
+const API_URL = "http://192.168.1.11:8000"
+axios.defaults.baseURL = API_URL
 
-createApp(App).use(store).use(router, axios).mount('#app')
+const app = createApp(App);
+
+app.config.globalProperties.API_URL = API_URL
+
+app.use(store).use(router, axios).mount('#app')

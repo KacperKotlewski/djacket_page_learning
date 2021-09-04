@@ -3,7 +3,7 @@
    <div class="columns is-multiline">
      <div class="column is-9">
        <figure class="image mb-6 is-5by4">
-         <img class="cover" v-bind:src="product.get_image">
+         <img class="cover" v-bind:src="API_URL + product.get_image">
        </figure>
 
        <h1 class="title">{{product.name}}</h1>
@@ -45,11 +45,13 @@ export default {
     this.getProduct()
   },
   methods:{
-    getProduct(){
+    async getProduct(){
+      this.$store.commit("setIsLoading", true)
+
       const category_slug = this.$route.params.category_slug
       const product_slug = this.$route.params.product_slug
 
-      axios
+      await axios
           .get(`/api/v1/products/${category_slug}/${product_slug}/`, { crossdomain: true })
           .then(response=>{
             this.product = response.data
@@ -57,6 +59,8 @@ export default {
           .catch(error => {
             console.log(error)
           })
+
+      this.$store.commit("setIsLoading", false)
     },
     addToCart() {
       if (isNaN(this.quantity) || this.quantity <1){

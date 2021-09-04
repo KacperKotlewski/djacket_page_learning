@@ -19,7 +19,7 @@
       <div class="column is-3" v-for="product in latestProducts" v-bind:key="product.id">
         <div class="box">
           <figure class="image mb-4 is-5by3">
-            <img class="cover" v-bind:src="product.get_thumbnail">
+            <img class="cover" v-bind:src="API_URL + product.get_thumbnail">
           </figure>
           <h3 class="is-size-4">{{ product.name }}</h3>
           <p class="is-size-6 has-text-grey">{{ product.price }}$</p>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'Home',

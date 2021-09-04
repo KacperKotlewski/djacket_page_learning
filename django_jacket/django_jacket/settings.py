@@ -144,7 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ALLOWED_CORS = {
     "type": ["http", "https"],
-    "ip": ["localhost"],
+    "ip": ["localhost", "127.0.0.1", "192.168.1.11"],
     "port": ["8080", "8081", "8000", "80"]
 }
 
@@ -182,5 +182,6 @@ SHUFFLED_ALLOWED_CORS = shuffle_lists(ALLOWED_CORS["type"], ALLOWED_CORS["ip"] ,
 
 CORS_ORIGIN_WHITELIST = tuple(f"{type}://{ip}:{port}" for type, ip, port in SHUFFLED_ALLOWED_CORS)
 print("CORS_ORIGIN_WHITELIST = ", CORS_ORIGIN_WHITELIST)
+
 
 CORS_URLS_REGEX = r'^/api/.*$'
