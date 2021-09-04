@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import {toast} from "bulma-toast";
+
 export default {
   data() {
     return {
@@ -76,6 +78,18 @@ export default {
       return totalLength;
     }
   },
+  methods: {
+    toastErrorMessage(){
+      toast({
+        message: "Something went wrong. Please Try again.",
+        type: "is-danger",
+        dismissible: true,
+        pauseOnHover: true,
+        duration: 2000,
+        position: "bottom-right"
+      })
+    }
+  }
 }
 </script>
 

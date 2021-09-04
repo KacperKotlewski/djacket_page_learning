@@ -59,6 +59,7 @@ export default {
           })
           .catch(error => {
             console.log(error)
+            this.$root.toastErrorMessage()
           })
 
       this.$store.commit("setIsLoading", false)
