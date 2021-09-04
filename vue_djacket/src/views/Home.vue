@@ -47,6 +47,7 @@ export default {
   components: {
   },
   mounted() {
+    document.title = "Home | Djackets",
     this.getLatestProducts()
   },
   methods: {
@@ -61,7 +62,7 @@ export default {
           .catch(error => {
             console.log(error)
           })
-      
+
       this.$store.commit("setIsLoading", false)
     }
   }
