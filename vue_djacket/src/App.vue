@@ -116,6 +116,16 @@ export default {
 
 <style lang="scss">
 @import "../node_modules/bulma";
+
+html{
+  overflow-y: auto;
+}
+#wrapper {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
 /*#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
