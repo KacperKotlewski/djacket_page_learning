@@ -3,8 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from "axios";
+require("dotenv").config();
 
-const API_URL = "http://192.168.1.11:8000"
+const AXIOS_ADDRESS_ENV = process.env.VUE_APP_AXIOS_ADDRESS
+
+const API_URL = (AXIOS_ADDRESS_ENV) ? AXIOS_ADDRESS_ENV : "http://localhost:8000";
 axios.defaults.baseURL = API_URL
 
 const app = createApp(App);
