@@ -1,4 +1,4 @@
-# vue_djacket
+# django_jacket
 
 ## Install libraries
 ```
